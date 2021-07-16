@@ -1,14 +1,7 @@
-<!-- Some code from this source was used 
-Author: David Adams
-Date: 27 January 2021
-Title: Secure Login System with PHP and MySQL
-Available at: https://codeshack.io/secure-login-system-php-mysql/
--->
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Login</title>
+		<title>Register</title>
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
@@ -18,8 +11,8 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 	</head>
 	<body>
 		<div class="login">
-			<h1>Login</h1>
-			<form action="authenticate.php" method="post">
+			<h1>Register</h1>
+			<form action="createAccount.php" method="post">
 				<label for="username">
 					<i class="fas fa-user"></i>
 				</label>
@@ -28,8 +21,11 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 					<i class="fas fa-lock"></i>
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required>
-				New user?&nbsp<a href="register.html">Register here</a>
-				<input type="submit" value="Login">
+				<label for="email">
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input type="text" name="email" placeholder="Email" id="email" required>
+				<input type="submit" value="Create account">
 			</form>
 		</div>
 	</body>
