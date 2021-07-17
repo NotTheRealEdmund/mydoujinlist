@@ -28,13 +28,8 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 		<link href="style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body class="loggedin">
-		<nav class="navtop">
-			<div>
-				<h1>MyDoujinList</h1>
-				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
-			</div>
-		</nav>
+		<?php require 'navbar.html'; ?>
+		
 		<div class="content">
 			<h2>Home Page</h2>
 			<p>Welcome back, <?=$_SESSION['name']?>!</p>
