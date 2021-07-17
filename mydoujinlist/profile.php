@@ -62,10 +62,6 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 						<td><?=$_SESSION['name']?></td>
 					</tr>
 					<tr>
-						<td>Hashed Password:</td>
-						<td><?=$password?></td>
-					</tr>
-					<tr>
 						<td>Email:</td>
 						<td><?=$email?></td>
 					</tr>
