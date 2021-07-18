@@ -1,10 +1,3 @@
-<!-- Some code from this source was used 
-Author: David Adams
-Date: 27 January 2021
-Title: Secure Login System with PHP and MySQL
-Available at: https://codeshack.io/secure-login-system-php-mysql/
--->
-
 <?php
 	// We need to use sessions, so you should always start sessions using the below code
 	session_start();
@@ -41,14 +34,14 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Profile Page</title>
+		<title>Edit Email</title>
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
   		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
   		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 		<link href="style.css" rel="stylesheet" type="text/css">
-		<style> 
+		<style>
 			.editButton {
 				cursor: pointer;
 				text-decoration: none;
@@ -66,19 +59,13 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 		<div class="content">
 			<h2>Profile Page</h2>
 			<div>
-				<p>Your account details are below:</p>
-				<table>
-					<tr>
-						<td>Username:</td>
-						<td><?=$_SESSION['name']?></td>
-						<td><a href="editUsername.php" class="editButton">Edit</a>
-					</tr>
-					<tr>
-						<td>Email:</td>
-						<td><?=$email?></td>
-						<td><a href="editEmail.php" class="editButton">Edit</a>
-					</tr>
-				</table>
+				<p>Old email: <?=$email?></p>
+				<p>Enter your new email below:</p>
+				<form action="changeEmail.php" method="post">
+					<input type="text" name="email" placeholder="New Email" id="email" required>
+					&nbsp;
+				<input type="submit" value="Change" class="editButton">
+			</form>
 			</div>
 		</div>
 	</body>
