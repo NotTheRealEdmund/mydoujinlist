@@ -1,10 +1,4 @@
 # mydoujinlist
-Although doujins have gained popularity over the recent years, there is not a single platform for people to record their favourite doujins.<br>
-Anime and manga have MyAnimeList, but doujins do not.<br>
-It does not make sense.<br>
-If nobody is going to do it, I will.<br>
-Even if I cannot complete it by myself, I believe that someone else will carry on.<br>
-I want to make MyDoujinList a reality, not just something I think to myself, "it would be nice if it existed".
 
 ## Setup web stack
 MyDoujinList is built on a LAMP stack, which stands for Linux, Apache, MySQL, and PHP.<br>
@@ -28,6 +22,7 @@ However, you cannot login without first setting up the database.<br>
 Go to `localhost` in your browser, click on phpMyAdmin button on the top right corner.<br>
 Create a database named `mydoujinlist`<br>
 Click on the SQL button.<br>
+We'll create a table `accounts`<br>
 Paste the code below and press Go.<br>
 ```
 CREATE TABLE `mydoujinlist`.`accounts` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `username` VARCHAR(50) NOT NULL , `password` VARCHAR(255) NOT NULL , `email` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
@@ -37,5 +32,14 @@ The long string in the middle is the hashed password.<br>
 Hashing is a one-way irreversible technique to convert plaintexts into digests, which are alphanumeric strings which will be used for verification.<br>
 ```
 INSERT INTO `accounts` (`id`, `username`, `password`, `email`) VALUES (1, 'test', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'password_is_test@test.com');
+```
+Now we'll create a table `doujins`<br>
+Paste the code below and press Go.<br>
+```
+CREATE TABLE `mydoujinlist`.`doujins` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `title` VARCHAR(50) NOT NULL , `artist` VARCHAR(50) NOT NULL , `tag` VARCHAR(255) NOT NULL , `link` VARCHAR(255) NOT NULL , `image_directory` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB; 
+```
+Now paste the code below to create a doujin entry.<br>
+```
+INSERT INTO `doujins`(`id`, `title`, `artist`, `tag`, `link`, `image_directory`) VALUES (1,'Sora kara Yattekita | She Arrived From the Skies','Misao.','sole female, sole male, lolicon, nakadashi, mosaic censorship, femdom, bbm, twintails, bald','https://nhentai.net/g/365762/','assets/img/1.jpeg')
 ```
 
