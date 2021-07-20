@@ -32,8 +32,7 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 		
 		<div class="content">
 			<h2>Home Page</h2>
-			<p>Welcome back, <?=$_SESSION['name']?>!</p>
-			<img src="assets/img/1.jpeg" width="250" height="350";>
+			
 		</div>
 	</body>
 </html>
