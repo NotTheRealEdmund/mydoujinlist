@@ -27,12 +27,67 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
   		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 		<link href="main.css" rel="stylesheet" type="text/css">
 	</head>
+	<style> 
+		.grid-container { 
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+			grid-gap: 10px;
+			align-items: stretch;
+			width: 1200px;
+			margin: auto;
+			padding-bottom: 150px;
+		}
+		.doujin {
+			border: 1px solid #ccc;
+			box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+			height: 400px;
+			border-radius: 10px;
+		}
+		.doujin img {
+		  	max-width: 100%;
+		  	border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+		}
+		.info {
+		  	text-align: center;
+		  	font-size: 14px;
+		  	font-weight: 700;
+		}
+	</style>
 	<body class="loggedin">
 		<?php require 'navbar.html'; ?>
 		
-		<div class="content">
-			<h2>Home Page</h2>
+		<?php
+			// Database information	
+			$DATABASE_HOST = 'localhost';
+			$DATABASE_USER = 'root';
+			$DATABASE_PASS = '';
+			$DATABASE_NAME = 'mydoujinlist';
 			
-		</div>
+			// Connect to database
+			$conn = new mysqli($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+			// Exception handling
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+			
+			// Read from the doujins table in database
+			$sql = "SELECT * FROM doujins";
+			$result = $conn->query($sql);
+			
+			echo '<div class="content">';
+			echo '<h2>Choose a doujin!</h2>';
+			echo '</div>';
+			
+			// Show all entries in doujins table in database
+			echo '<div class="grid-container">';
+				while($row = $result->fetch_assoc()) {
+					echo '<div class="doujin">';
+					echo '<img src="' . $row["image_directory"] . '" width="250" height="350";">';
+					echo '<div class="info">' . $row["title"] . ' [' . $row["artist"] . ']</div>';
+					echo '</div>';
+				}
+			echo '</div>';
+		?>
 	</body>
 </html>
