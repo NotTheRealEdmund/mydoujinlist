@@ -114,7 +114,7 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 				if ($result->num_rows > 0) {
 					echo '<div class="grid-container">';
 						while($row = $result->fetch_assoc()) {					
-							echo '<form method="post">';	// This form button does nothing for now
+							echo '<form action="doujinDetails.php" method="post">';
 							echo '<input type="hidden" name="doujinNumber" value="' . $row['id'] . '">';
 							echo '<button type="submit">';
 							echo '<div class="doujin">';
@@ -135,7 +135,7 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 				// Show all entries in doujins table in database
 				echo '<div class="grid-container">';
 					while($row = $result->fetch_assoc()) {					
-						echo '<form method="post">';	// This form button does nothing for now
+						echo '<form action="doujinDetails.php" method="post">';
 						echo '<input type="hidden" name="doujinNumber" value="' . $row['id'] . '">';
 						echo '<button type="submit">';
 						echo '<div class="doujin">';
