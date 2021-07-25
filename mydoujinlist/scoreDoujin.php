@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Doujin details</title>
+		<title>Rate doujin</title>
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
@@ -34,11 +34,11 @@
 			}
 			.myCellLabel {
 			    	display: table-cell;
-			    	width: 80px;
+			    	width: 120px;
 			}
 			.myCellValue {
+				padding-left: 10px;
 			    	display: table-cell;
-			    	max-width: 1000px;
 			}
 			.tag-container {
 				display: inline-block;
@@ -62,7 +62,7 @@
 		<?php require 'navbar.html'; ?>
 		
 		<div class="content">
-			<form action="scoreDoujin.php" method="post">
+			<form method="post">	<!-- This form button does nothing for now -->
 				<div class="content">
 					<?php
 						// Database information	
@@ -92,10 +92,14 @@
 							$result = $stmt->get_result();
 							
 							while($row = $result->fetch_assoc()) {
-								echo '<h2>' . $row["title"] . '</h2>';
+								echo '<h2>Give the doujin a score!</h2>';
 								echo '<p>';
 									echo '<img src="' . $row["image_directory"] . '">';
 									echo '<span class="myTable">';
+										echo '<span class="myRow">';
+											echo '<span class="myCellLabel">Title:</span>';
+											echo '<span class="myCellValue">' . $row["title"] . '</span>';
+										echo '</span><br><br>';
 										echo '<span class="myRow">';
 											echo '<span class="myCellLabel">Artist:</span>';
 											echo '<span class="myCellValue">' . $row["artist"] . '</span>';
@@ -113,9 +117,25 @@
 											echo '<span class="myCellLabel">Link:</span>';
 											echo '<span class="myCellValue">' . $row["link"] . '</span>';
 										echo '</span><br><br>';
-										echo '<br><br>';
+										echo '<span class="myRow">';
+											echo '<span class="myCellLabel">Score out of 10:</span>';
+											echo '<span class="myCellValue">';
+											echo '<select name="score">';
+											echo '<option value=10>(10) Gave me an orgasm</option>';
+											echo '<option value=9>(9) Got me excited</option>';
+											echo '<option value=8>(8) Very attractive</option>';
+											echo '<option value=7>(7) Will read again</option>';
+											echo '<option value=6>(6) Good</option>';
+											echo '<option selected value=5>(5) Average</option>';
+											echo '<option value=4>(4) Just not my type</option>';
+											echo '<option value=3>(3) Has some flaws</option>';
+											echo '<option value=2>(2) Very bad</option>';
+									  	        echo '<option value=1>(1) Waste of time</option>';
+											echo '</select>';
+											echo '</span>';
+										echo '</span><br><br>';
 										echo '<input type="hidden" name="doujinNumber" value="' . $_POST['doujinNumber'] . '">';
-										echo '<input type="submit" value="Add to doujin list!" class="myButton">';
+										echo '<input type="submit" value="Submit your doujin!" class="myButton">';
 									echo '</span>';
 								echo '</p>';
 							}
