@@ -42,4 +42,9 @@ Now paste the code below to create a doujin entry.<br>
 ```
 INSERT INTO `doujins`(`id`, `title`, `artist`, `tag`, `link`, `image_directory`) VALUES (1,'Sora kara Yattekita | She Arrived From the Skies','Misao.','sole female, sole male, lolicon, nakadashi, mosaic censorship, femdom, bbm, twintails, bald','https://nhentai.net/g/365762/','assets/img/1.jpeg')
 ```
+Now we'll create a table `selections`<br>
+Paste the code below and press Go.<br>
+```
+CREATE TABLE `mydoujinlist`.`selections` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `user` VARCHAR(50) NOT NULL , `doujinNumber` INT(11) NOT NULL , `score` INT(11) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB; 
+```
 
