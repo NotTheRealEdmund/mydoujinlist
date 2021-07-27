@@ -62,7 +62,7 @@
 		<?php require 'navbar.html'; ?>
 		
 		<div class="content">
-			<form method="post">	<!-- This form button does nothing for now -->
+			<form action="addDoujin.php" method="post">
 				<div class="content">
 					<?php
 						// Database information	
