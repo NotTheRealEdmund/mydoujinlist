@@ -37,8 +37,8 @@
 			$stmt->bind_param('sii', $_SESSION['name'], $_POST['doujinNumber'], $_POST['score']);
 			$stmt->execute();
 
-			// Redirect to the home page
-			header('Location: home.php');
+			// Redirect to the doujin list page
+			header('Location: list.php');
 		}
 		
 		// Close connection
