@@ -45,6 +45,5 @@ INSERT INTO `doujins`(`id`, `title`, `artist`, `tag`, `link`, `image_directory`)
 Now we'll create a table `selections`<br>
 Paste the code below and press Go.<br>
 ```
-CREATE TABLE `mydoujinlist`.`selections` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `user` VARCHAR(50) NOT NULL , `doujinNumber` INT(11) NOT NULL , `score` INT(11) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB; 
+CREATE TABLE `mydoujinlist`.`selections` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `user` VARCHAR(50) NOT NULL , `doujinNumber` INT(11) NOT NULL , `score` INT(11) NOT NULL , `review` VARCHAR(1500) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB; 
 ```
-
