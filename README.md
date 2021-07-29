@@ -42,6 +42,9 @@ Now paste the code below to create a doujin entry.<br>
 ```
 INSERT INTO `doujins`(`id`, `title`, `artist`, `tag`, `link`, `image_directory`) VALUES (1,'Sora kara Yattekita | She Arrived From the Skies','Misao.','sole female, sole male, lolicon, nakadashi, mosaic censorship, femdom, bbm, twintails, bald','https://nhentai.net/g/365762/','assets/img/1.jpeg')
 ```
+```
+INSERT INTO `doujins`(`id`, `title`, `artist`, `tag`, `link`, `image_directory`) VALUES (2,'Watashi-tachi no Fine | Our Fine','Homura Subaru','yuri, manga','https://nhentai.net/g/363967/','assets/img/2.jpg')
+```
 Now we'll create a table `selections`<br>
 Paste the code below and press Go.<br>
 ```
