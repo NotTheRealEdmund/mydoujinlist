@@ -138,6 +138,11 @@
 										echo '<input type="submit" value="Submit your doujin!" class="myButton">';
 									echo '</span>';
 								echo '</p>';
+								
+								echo '<h2>Give a review! (Optional)</h2>';
+								echo '<form action="getReview.php" method="POST">';
+								echo '<textarea placeholder="What did you think..." name="review" maxlength=1500 rows=10 cols=113></textarea><br><br>';
+								echo '</form>';
 							}
 						}
 					?>

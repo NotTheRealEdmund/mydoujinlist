@@ -118,6 +118,33 @@
 										echo '<input type="submit" value="Add to doujin list!" class="myButton">';
 									echo '</span>';
 								echo '</p>';
+								
+								// Read from the selections table in database where this particular doujin has been selected 
+								// Prepare our SQL, preparing the SQL statement will prevent SQL injection
+								if ($stmt = $conn->prepare('SELECT * FROM selections WHERE doujinNumber = ? AND review IS NOT NULL')) {
+									// Bind parameters (s = string, i = int, b = blob, etc)
+									$stmt->bind_param('i', $_POST['doujinNumber']);
+									$stmt->execute();
+									$result = $stmt->get_result();
+									
+									// If reviews are found
+									if ($result->num_rows > 0) {
+										// Post reviews
+										echo '<h2>Reviews</h2>';
+										while($row = $result->fetch_assoc()) {
+											echo '<p>';
+											echo '<span class="myTable">';
+											echo '<span class="myRow">';
+											echo '<span class="myCellLabel">' . $row['user'] . ':</span>';
+											echo '<span class="myCellValue">' . $row['review'] . '</span>';
+											echo '</span>';
+											echo '</span>';
+											echo '</p>';
+										}
+									} else {
+										echo '<h2 style="text-align: center;">No reviews yet!</h2>';
+									}
+								}
 							}
 						}
 					?>

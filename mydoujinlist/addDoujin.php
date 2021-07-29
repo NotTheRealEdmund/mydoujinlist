@@ -16,9 +16,16 @@
 	}
 
 	// Check if the data from the score page was submitted, isset() will check if the data exists
-	if (!isset($_POST['score'], $_POST['doujinNumber'])) {
+	if (!isset($_POST['score'], $_POST['doujinNumber'], $_POST['review'])) {
 		// Could not get the data that should have been sent.
 		exit('Error obtaining doujin details!');
+	}
+	
+	// Since user reviews are optional, check if review is empty
+	if (empty($_POST['review'])) {
+		$review = null;
+	} else {
+		$review = $_POST['review'];
 	}
 	
 	// Prepare our SQL, preparing the SQL statement will prevent SQL injection
@@ -32,9 +39,9 @@
 		// If the user already entered the same doujin
 		if ($stmt->num_rows > 0) {
 			exit('The doujin entry already exists in your list!');
-		} else if ($stmt = $conn->prepare('INSERT INTO selections (user, doujinNumber, score) VALUES (?, ?, ?)')) {  // Otherwise, enter the doujin details into doujins table in database
+		} else if ($stmt = $conn->prepare('INSERT INTO selections (user, doujinNumber, score, review) VALUES (?, ?, ?, ?)')) {  // Otherwise, enter the doujin details into doujins table in database
 			// Bind parameters (s = string, i = int, b = blob, etc)
-			$stmt->bind_param('sii', $_SESSION['name'], $_POST['doujinNumber'], $_POST['score']);
+			$stmt->bind_param('siis', $_SESSION['name'], $_POST['doujinNumber'], $_POST['score'], $review);
 			$stmt->execute();
 
 			// Redirect to the doujin list page
