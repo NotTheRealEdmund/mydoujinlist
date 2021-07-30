@@ -57,7 +57,7 @@
 			}
 			.column1 {	/* Title */
 				padding-left: 30px;
-				width: 200px;
+				width: 250px;
 			}
 			.column2 {	/* Artist */
 				padding: 10px;
@@ -65,14 +65,18 @@
 			}
 			.column3 {	/* Tags */
 				padding: 10px;
-				width: 500px;
+				width: 400px;
 			}
 			.column4 {	/* Link */
 				padding: 10px;
-				width: 300px;
+				width: 250px;
 			}
 			.column5 {	/* Score */
 				text-align: center;
+				padding-right: 30px;
+				width: 100px;
+			}
+			.column6 {	/* Delete button */
 				padding-right: 30px;
 				width: 100px;
 			}
@@ -83,6 +87,14 @@
   				background: #d9d9d9;
   				margin: .5px;
   				padding: .5px;
+			}
+			.myButton {
+				cursor: pointer;
+				background: #e9658d;
+				border: 0;
+				color: white;
+			  	padding: 10px;
+			  	border-radius: 5px;
 			}
 		</style>
 	</head>
@@ -127,6 +139,7 @@
 						echo '<th class="column3">Tags</th>';
 						echo '<th class="column4">Link</th>';
 						echo '<th class="column5">Score</th>';
+						echo '<th class="column6">Delete</th>';
 						echo '</tr>';
 						echo '</thead>';
 						echo '<tbody>';
@@ -159,6 +172,12 @@
 									echo '</td>';
 									echo '<td class="column4">' . $row["link"] . '</td>';
 									echo '<td class="column5">' . $pair[1] . '</td>';
+									echo '<td class="column6">';
+									echo '<form action="deleteDoujin.php" method="post">';
+									echo '<input type="hidden" name="doujinNumber" value="' . $row["id"] . '">';
+									echo '<input type="submit" value="Delete" class="myButton">';
+									echo '</form>';
+									echo '</td>';
 									echo '</tr>';
 								}
 							}
