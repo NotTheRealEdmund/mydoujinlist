@@ -33,18 +33,13 @@ Hashing is a one-way irreversible technique to convert plaintexts into digests, 
 ```
 INSERT INTO `accounts` (`id`, `username`, `password`, `email`) VALUES (1, 'test', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'password_is_test@test.com');
 ```
-Now we'll create a table `doujins`<br>
-Paste the code below and press Go.<br>
-```
-CREATE TABLE `mydoujinlist`.`doujins` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `title` VARCHAR(50) NOT NULL , `artist` VARCHAR(50) NOT NULL , `tag` VARCHAR(255) NOT NULL , `link` VARCHAR(255) NOT NULL , `image_directory` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB; 
-```
-Now paste the code below to create a doujin entry.<br>
-```
-INSERT INTO `doujins`(`id`, `title`, `artist`, `tag`, `link`, `image_directory`) VALUES (1,'Sora kara Yattekita | She Arrived From the Skies','Misao.','sole female, sole male, lolicon, nakadashi, mosaic censorship, femdom, bbm, twintails, bald','https://nhentai.net/g/365762/','assets/img/1.jpeg')
-```
-```
-INSERT INTO `doujins`(`id`, `title`, `artist`, `tag`, `link`, `image_directory`) VALUES (2,'Watashi-tachi no Fine | Our Fine','Homura Subaru','yuri, manga','https://nhentai.net/g/363967/','assets/img/2.jpg')
-```
+Now to set up the `doujins` table, we will first import the doujin entries from the `doujins.ods` file<br>
+Click on `Import` button in phpmyadmin<br>
+Click on the `Browse...` button and upload the `doujins.ods` file<br>
+Under `Format-specific options:`, check the option `The first line of the file contains the table column names...` and click `Go`<br>
+You will see a table called `Sheet1` has been created under `mydoujinlist`<br>
+Click on `Sheet1`, click on `Operations`<br>
+Under `Table options`, rename table to `doujins` and click `Go`<br>
 Now we'll create a table `selections`<br>
 Paste the code below and press Go.<br>
 ```
