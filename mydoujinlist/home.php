@@ -3,7 +3,7 @@ Author: David Adams
 Date: 27 January 2021
 Title: Secure Login System with PHP and MySQL
 Available at: https://codeshack.io/secure-login-system-php-mysql/
--->
+--->
 
 <?php
 	// We need to use sessions, so you should always start sessions using the below code
@@ -43,7 +43,6 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 				display: grid;
 				grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 				grid-gap: 10px;
-				align-items: stretch;
 				width: 1200px;
 				margin: auto;
 				padding-bottom: 150px;
@@ -56,18 +55,19 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 			.doujin {
 				border: 1px solid #ccc;
 				box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
-				height: 400px;
+				height: auto;
 				border-radius: 10px;
 			}
 			.doujin img {
 			  	max-width: 100%;
+			  	height: auto;
 			  	border-top-left-radius: 10px;
 				border-top-right-radius: 10px;
 			}
 			.info {
 			  	text-align: center;
 			  	font-size: 14px;
-			  	font-weight: 700;
+		  		font-weight: 700;
 			}
 		</style>
 	</head>
@@ -113,12 +113,12 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 				// If result is found
 				if ($result->num_rows > 0) {
 					echo '<div class="grid-container">';
-						while($row = $result->fetch_assoc()) {					
+						while($row = $result->fetch_assoc()) {
 							echo '<form action="doujinDetails.php" method="post">';
 							echo '<input type="hidden" name="doujinNumber" value="' . $row['id'] . '">';
 							echo '<button type="submit">';
 							echo '<div class="doujin">';
-							echo '<img src="' . $row["image_directory"] . '" width="250" height="350";">';
+							echo '<img src="' . $row["image_directory"] . '">';
 							echo '<div class="info">' . $row["title"] . ' [' . $row["artist"] . ']</div>';
 							echo '</div>';
 							echo '</button>';
@@ -134,12 +134,12 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 				// When the page is just loaded
 				// Show all entries in doujins table in database
 				echo '<div class="grid-container">';
-					while($row = $result->fetch_assoc()) {					
+					while($row = $result->fetch_assoc()) {
 						echo '<form action="doujinDetails.php" method="post">';
 						echo '<input type="hidden" name="doujinNumber" value="' . $row['id'] . '">';
 						echo '<button type="submit">';
 						echo '<div class="doujin">';
-						echo '<img src="' . $row["image_directory"] . '" width="250" height="350";">';
+						echo '<img src="' . $row["image_directory"] . '">';
 						echo '<div class="info">' . $row["title"] . ' [' . $row["artist"] . ']</div>';
 						echo '</div>';
 						echo '</button>';
@@ -147,8 +147,6 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 					}
 				echo '</div>';
 			}
-			
-			
 		?>
 	</body>
 </html>

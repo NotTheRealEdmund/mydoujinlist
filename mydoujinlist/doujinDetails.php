@@ -21,10 +21,12 @@
 		<link href="main.css" rel="stylesheet" type="text/css">
 		<style>
 			img {
-				width: 150px;
-				height: 250px;
+				width: 300px;
 				float: left;
 				margin-right: 50px;
+			}
+			p {
+				height: 500px;
 			}
 			.myTable {
 				display: table;
@@ -99,7 +101,8 @@
 										echo '<span class="myRow">';
 											echo '<span class="myCellLabel">Artist:</span>';
 											echo '<span class="myCellValue">' . $row["artist"] . '</span>';
-										echo '</span><br><br>';
+										echo '</span>';
+										echo '<br>';
 										echo '<span class="myRow">';
 											echo '<span class="myCellLabel">Tags:</span>';
 											echo '<span class="myCellValue">';
@@ -108,12 +111,13 @@
 												echo '<span class="tag-container">' . $myTag . '</span>';
 											} 
 											echo '</span>';
-										echo '</span><br><br>';
+										echo '</span>';
+										echo '<br>';
 										echo '<span class="myRow">';
 											echo '<span class="myCellLabel">Link:</span>';
 											echo '<span class="myCellValue">' . $row["link"] . '</span>';
-										echo '</span><br><br>';
-										echo '<br><br>';
+										echo '</span>';
+										echo '<br>';
 										echo '<input type="hidden" name="doujinNumber" value="' . $_POST['doujinNumber'] . '">';
 										echo '<input type="submit" value="Add to doujin list!" class="myButton">';
 									echo '</span>';

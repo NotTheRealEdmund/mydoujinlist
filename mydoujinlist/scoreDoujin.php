@@ -21,10 +21,12 @@
 		<link href="main.css" rel="stylesheet" type="text/css">
 		<style>
 			img {
-				width: 150px;
-				height: 250px;
+				width: 300px;
 				float: left;
 				margin-right: 50px;
+			}
+			p {
+				height: 500px;
 			}
 			.myTable {
 				display: table;
@@ -55,6 +57,9 @@
 				color: white;
 			  	padding: 10px;
 			  	border-radius: 5px;
+			}
+			textarea {
+				margin-bottom: 100px;
 			}
 		</style>
 	</head>
@@ -99,11 +104,13 @@
 										echo '<span class="myRow">';
 											echo '<span class="myCellLabel">Title:</span>';
 											echo '<span class="myCellValue">' . $row["title"] . '</span>';
-										echo '</span><br><br>';
+										echo '</span>';
+										echo '<br>';
 										echo '<span class="myRow">';
 											echo '<span class="myCellLabel">Artist:</span>';
 											echo '<span class="myCellValue">' . $row["artist"] . '</span>';
-										echo '</span><br><br>';
+										echo '</span>';
+										echo '<br>';
 										echo '<span class="myRow">';
 											echo '<span class="myCellLabel">Tags:</span>';
 											echo '<span class="myCellValue">';
@@ -112,11 +119,13 @@
 												echo '<span class="tag-container">' . $myTag . '</span>';
 											} 
 											echo '</span>';
-										echo '</span><br><br>';
+										echo '</span>';
+										echo '<br>';
 										echo '<span class="myRow">';
 											echo '<span class="myCellLabel">Link:</span>';
 											echo '<span class="myCellValue">' . $row["link"] . '</span>';
-										echo '</span><br><br>';
+										echo '</span>';
+										echo '<br>';
 										echo '<span class="myRow">';
 											echo '<span class="myCellLabel">Score out of 10:</span>';
 											echo '<span class="myCellValue">';
@@ -133,7 +142,8 @@
 									  	        echo '<option value=1>(1) Waste of time</option>';
 											echo '</select>';
 											echo '</span>';
-										echo '</span><br><br>';
+										echo '</span>';
+										echo '<br>';
 										echo '<input type="hidden" name="doujinNumber" value="' . $_POST['doujinNumber'] . '">';
 										echo '<input type="submit" value="Submit your doujin!" class="myButton">';
 									echo '</span>';
@@ -141,7 +151,7 @@
 								
 								echo '<h2>Give a review! (Optional)</h2>';
 								echo '<form action="getReview.php" method="POST">';
-								echo '<textarea placeholder="What did you think..." name="review" maxlength=1500 rows=10 cols=113></textarea><br><br>';
+								echo '<textarea placeholder="What did you think..." name="review" maxlength=1500 rows=10 cols=113></textarea>';
 								echo '</form>';
 							}
 						}
