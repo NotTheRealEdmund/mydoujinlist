@@ -1,0 +1,39 @@
+index.html(v) -> authenticate.php ------------*---> home.php(v)    profile.php(v) -> editUsername.php(v) -> changeUsername.php  *
+   | ^  ^                                     *         |            ^  ^  |                                          |         *
+   | |  |                              -------*         V            |  |  ----> editEmail.php(v) -> changeEmail.php  |         *
+   | |  |                              |      * doujinDetails.php(v) |  |                                |            |         *
+   | |  |                              |      *         |            |  |                                |            |         *
+   | |  |                              |      *         v            |  |                                |            |         *
+   | |  |                              |      *  scoreDoujin.php(v)  |  |                                |            |         *
+   | |  |                              |      *         |            |  ----------------------------------            |         *
+   | |  |                              |      *         |            --------------------------------------------------         *
+   | |  |                              |      *    addDoujin.php                                                                *
+   | |  |                              v      *         |  --------------------------                                           *
+   | |  -------------------------logout.php   *         |  |                        |                                           *
+   | |                                        *         v  v                        |                                           *
+   | |                                        *    list.php(v)->deleteDoujin.php-----                                           *
+   | |                                        *                                                                                 *
+   | ----------------------                   ***********************************************************************************
+   v                      |
+register.html(v)          |
+   |                      |
+   |                successful.html(v)                         navbar.html(v)
+   |                      ^
+   v                      |					main.css
+createAccount.php----------					login.css
+
+The user can enter logout.php from any page inside the asterisk box
+The user can also enter home.php, profile.php, and list.php from any page inside the asterisk box except addDoujin.php, changeUsername.php, changeEmail.php, and deleteDoujin.php
+
+home.php will be where the user chooses the doujin, doujinDetails.php is where user sees the details and reviews of doujin, scoreDoujin.php is where user gives the doujin a score and leave a review, addDoujin.php stores the doujin data into server, list.php shows the list of doujins, deleteDoujin.php removes doujin data from server
+
+(v) means visible
+All visible files except index.html and register.html will use php's require function to obtain navbar.html so that we do not need to copy and paste every time
+
+Database tables
+accounts: id, username, password, email
+selections: id, user, doujinNumber, score, review
+doujins: id, title, artist, tag, link, image_directory
+
+accounts's username is same as selection's user
+selection's doujinNumber is the same as doujin's id
