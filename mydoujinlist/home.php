@@ -108,7 +108,7 @@ Available at: https://codeshack.io/secure-login-system-php-mysql/
 			if (isset($_POST["title_search"])) {
 				// Find entries in doujins table in database where the title column contains input
 				$title_search = $_POST["title_search"];
-				$result = mysqli_query($conn, "SELECT * from doujins where title LIKE '%$title_search%'"); 
+				$result = mysqli_query($conn, "SELECT * from doujins WHERE title LIKE '%$title_search%' OR artist LIKE '%$title_search%' OR tag LIKE '%$title_search%'"); 
 			
 				// If result is found
 				if ($result->num_rows > 0) {
